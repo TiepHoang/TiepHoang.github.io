@@ -51,13 +51,13 @@ function _(data){
 					i++;
 				}
 				copy(res);
-				return "Copied = "+res;
+				return res;
             }
         }
 	}
 }
-
-	$('#btnGet').click(function(){
+$(function(){
+$('#btnGet').click(function(){
 	try{
 $('txtResult').text(_($('txtLink').val()))
 alert('copied!');
@@ -65,6 +65,8 @@ alert('copied!');
 		catch(e){
 alert(e);
 }
+})
+	
 });
 </script>
 </body>
