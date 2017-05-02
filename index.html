@@ -1,0 +1,24 @@
+Get src image from link flick.com
+<textarea>
+function _(data){
+	var res = 'src="https://c1.staticflickr.com/';
+	var  word="";
+	for(i=0;i<data.length;i++){
+		if(data[i]==' '){
+			word="";
+		}else{
+			word+=data[i];
+			if(word == res){
+				res="https://c1.staticflickr.com/";
+				i++;
+				while(data[i]!='"'){
+					res+=data[i];
+					i++;
+				}
+				copy(res);
+				return "Copied = "+res;
+            }
+        }
+	}
+}
+</textarea>
