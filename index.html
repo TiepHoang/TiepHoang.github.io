@@ -55,7 +55,7 @@ function _(data){
 					i++;
 				}
 				try{
-					if(!document.execCommand('copy')) alert('copied!');
+					if(document.execCommand('copy')) alert('copied!');
 					copy(res);
 				}catch(e){
 					console.log(e)
@@ -77,7 +77,11 @@ function _(data){
 			catch(e){
 				alert(e);
 			}
-		})
+		});
+		$('#txtResult').click(function(){
+			$(this).select();
+			if(document.execCommand('copy')) alert('copied!');
+		});
 	});
 </script>
 </body>
