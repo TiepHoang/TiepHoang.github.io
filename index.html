@@ -29,13 +29,13 @@ body, html {height: 100%}
 	<div class="w3-display-middle">
 		<h1 class="w3-jumbo w3-animate-top">GET SRC FROM FLICK</h1>
 		<h3>
-		<input type='text' class="form-control" id='txtLink'/>
+		<input type='text' class="form-control" id='txtLink' placeholder="Paste link you to get src ..."/>
 		</h3>
 		<h3 class='center'>
 		<button class='btn btn-success' id='btnGet'>Get link</button>
 		</h3>
 		<h3>
-		<input type='text' class="form-control" id='txtResult'/>
+		<input type='text' class="form-control" id='txtResult' placeholder='This is result after get link , auto copy to clipbroad...'/>
 		</h3>
 		<div>
 			<label class='label-success' id='alert-result'></label>
@@ -62,7 +62,7 @@ function _(data){
 					i++;
 				}
 				try{
-					if(document.execCommand('copy')) alert('copied!');
+					if(document.execCommand('copy')) console.log('copied!');
 					copy(res);
 				}catch(e){
 					console.log(e)
