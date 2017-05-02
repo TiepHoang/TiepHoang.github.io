@@ -7,151 +7,174 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<link rel="icon" href="http://www.techgirlz.org/wp-content/uploads/2016/12/github-logo-300x300.png"/>
+<link rel="icon" href="http://www.techgirlz.org/wp-content/uploads/2016/12/github-logo-300x300.png" />
 <style>
-body,h1 {font-family: "Raleway", sans-serif}
-body, html {
-	height: 100%;
-	overflow: hidden;
-}
-.bgimg {
-    background-image: url('https://www.w3schools.com/w3images/forestbridge.jpg');
-    min-height: 100%;
-    background-position: center;
-    background-size: cover;
-}
-.center{
-	text-align: center;
-}
-#result-img{
-	display: block;	
-}
-.img-result{
-	max-width: 80%;
-	max-height: 50%;
-	max-height: 300px;
-}
+    body,
+    h1 {
+        font-family: "Raleway", sans-serif
+    }
+
+    body,
+    html {
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .bgimg {
+        background-image: url('https://www.w3schools.com/w3images/forestbridge.jpg');
+        min-height: 100%;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .center {
+        text-align: center;
+    }
+
+    #result-img {
+        display: block;
+    }
+
+    .img-result {
+        max-width: 80%;
+        max-height: 50%;
+        max-height: 300px;
+    }
 </style>
+
 <body>
-<div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
-	<div class="w3-display-topleft w3-padding-large w3-xlarge">
-		Hoàng <a href='https://github.com/TiepHoang/TiepHoang.github.io/edit/master/index.html'>T</a>iệp
-	</div>
-	<div class="w3-display-middle">
-		<h1 class="w3-jumbo w3-animate-top">GET SRC FROM FLICK</h1>
-		<h3>
-		<input type='text' class="form-control" id='txtLink' placeholder="Paste link you to get src ..."/>
-		</h3>
-		<h3 class='center'>
-		<button class='btn btn-success' id='btnGet'>Get link</button>
-		</h3>
-		<h3>
-		<input type='text' class="form-control" id='txtResult' placeholder='This is result after get link , auto copy to clipbroad...'/>
-		</h3>
-		<div>
-			<label class='label-success' id='alert-result'></label>
-			<div id='result-img center'>
-				<img alt="image will display here" class='img-result' id='img-hihi'>
-			</div>
-		</div>
-	</div>
-</div>
-<script>
-function _(data){
-	if(!data) {
-		throw 'not found link';
-	}
-	var res = 'src="https://c1.staticflickr.com/';
-	var  word="";
-	for(i=0;i<data.length;i++){
-		if(data[i]==' '){
-			word="";
-		}else{
-			word+=data[i];
-			if(word == res){
-				res="https://c1.staticflickr.com/";
-				i++;
-				while(data[i]!='"'){
-					res+=data[i];
-					i++;
-				}
-				try{
-					if(document.execCommand('copy')) console.log('copied!');
-					copy(res);
-				}catch(e){
-					console.log(e)
-				}
-				return res;
-            		}
-        	}
-	}
-	return '<empty>';
-}
-</script>
-<script>
-	$(function(){
-		$('#txtLink').focus();
-		
-		function r(){
-			try{
-				let r = _($('#txtLink').val());
-				$('#txtResult').val(r);
-				$('#alert-result').text( new Date($.now()).toString() + " copied= "+ r);
-// 				$('<img/>',{
-// 					src: r,
-// 					class: 'img-result'
-// 				}).appendTo('#result-img');
-				$('#img-hihi').attr('src',r);
-				$('#txtResult').select();
-				document.execCommand('copy');
-			}
-			catch(e){
-				alert(e);
-			}
+    <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+        <div class="w3-display-topleft w3-padding-large w3-xlarge">
+            Hoàng Tiệp .<a href='https://github.com/TiepHoang/TiepHoang.github.io/edit/master/index.html'>.</a>.
+        </div>
+        <div class="w3-display-middle">
+            <h1 class="w3-jumbo w3-animate-top">GET SRC FROM FLICK</h1>
+            <h3>
+                <input type='text' class="form-control" id='txtLink' placeholder="Paste link you to get src ..." />
+            </h3>
+            <h3 class='center'>
+                <button class='btn btn-success' id='btnGet'>Get link</button>
+            </h3>
+            <h3>
+                <input type='text' class="form-control" id='txtResult' placeholder='This is result after get link , auto copy to clipbroad...' />
+            </h3>
+            <div>
+                <label class='label-success' id='alert-result'></label>
+                <div id='result-img center'>
+                    <img alt="image will display here" class='img-result' id='img-hihi'>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function _(data) {
+            if (!data) {
+                throw 'not found link';
+            }
+            var res = 'src="https://c1.staticflickr.com/';
+            var word = "";
+            for (i = 0; i < data.length; i++) {
+                if (data[i] == ' ') {
+                    word = "";
+                } else {
+                    word += data[i];
+                    if (word == res) {
+                        res = "https://c1.staticflickr.com/";
+                        i++;
+                        while (data[i] != '"') {
+                            res += data[i];
+                            i++;
+                        }
+                        try {
+                            if (document.execCommand('copy')) console.log('copied!');
+                            copy(res);
+                        } catch (e) {
+                            console.log(e)
+                        }
+                        return res;
+                    }
+                }
+            }
+            return '<empty>';
+        }
+    </script>
+    <script>
+        $(function() {
+            $('#txtLink').focus();
+
+            function r() {
+                try {
+                    let r = _($('#txtLink').val());
+                    $('#txtResult').val(r);
+                    $('#alert-result').text(new Date($.now()).toString() + " copied= " + r);
+                    $('<img/>', {
+                        src: r,
+                        class: 'img-result'
+                    }).appendTo('#result-img');
+                    $('#img-hihi').attr('src', r);
+                    $('#txtResult').select();
+                    document.execCommand('copy');
+		    $('#txtLink').focus();
+                } catch (e) {
+                    alert(e);
+                }
+            }
+            var ctrlDown = false,
+                ctrlKey = 17,
+                cmdKey = 91,
+                vKey = 86,
+		ctrlV = false,
+                pressCtrlV = false;
+            cKey = 67;
+
+            $(document).keydown(function(e) {
+                if (e.keyCode == ctrlKey || e.keyCode == cmdKey) {
+			ctrlDown = true;
+			ctrlV = true;
 		}
-		var ctrlDown = false,
-		ctrlKey = 17,
-		cmdKey = 91,
-		vKey = 86,
-		pressCtrlV = false;
-		cKey = 67;
-		
-
-		    $(document).keydown(function(e) {
-			if (e.keyCode == ctrlKey || e.keyCode == cmdKey) ctrlDown = true;
-		    }).keyup(function(e) {
-			if (e.keyCode == ctrlKey || e.keyCode == cmdKey) ctrlDown = false;
-		    });
-
-		    $("#txtLink").keydown(function(e) {
-			if (ctrlDown && (e.keyCode == vKey || e.keyCode == cKey)){
-				pressCtrlV = true;
-			}
-		    });
-			$("#txtLink").keyup(function(e) {
-				if(pressCtrlV){
-					pressCtrlV = false;
+            }).keyup(function(e) {
+                if (e.keyCode == ctrlKey || e.keyCode == cmdKey){
+			if(ctrlDown && ctrlV){
+				$('#txtLink').focus();
+				setTimeout(function(){
 					r();
-				}
-			});
-		$('#txtLink').keypress(function(e){
-			if(e.which == 13){
-				r();
+				},100);
 			}
-		});
-		
-		$('#btnGet').click(function(){
-			r();
-		});
-		$('input[type="text"]').click(function(){
-			$(this).select();
-		});
-		
-		$('#txtResult').click(function(){
-			$(this).select();
-			if(document.execCommand('copy')) alert('copied!');
-		});
-	});
-</script>
+			ctrlDown = false;
+			ctrlV = false;
+		}
+            });
+
+            $("#txtLink").keydown(function(e) {
+                if (ctrlDown && (e.keyCode == vKey || e.keyCode == cKey)) {
+                    pressCtrlV = true;
+                }
+            });
+            $("#txtLink").keyup(function(e) {
+                if (pressCtrlV) {
+                    pressCtrlV = false;
+                    r();
+                }
+            });
+            $('#txtLink').keypress(function(e) {
+                if (e.which == 13) {
+                    r();
+                }
+            });
+
+            $('#btnGet').click(function() {
+                r();
+            });
+            $('input[type="text"]').click(function() {
+                $(this).select();
+            });
+
+            $('#txtResult').click(function() {
+                $(this).select();
+                if (document.execCommand('copy')) alert('copied!');
+            });
+        });
+    </script>
 </body>
+
 </html>
