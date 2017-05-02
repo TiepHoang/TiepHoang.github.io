@@ -54,7 +54,12 @@ function _(data){
 					res+=data[i];
 					i++;
 				}
-				copy(res);
+				try{
+					document.execCommand('copy');
+					copy(res);
+				}catch(e){
+					alert(e)
+				}
 				return res;
             		}
         	}
