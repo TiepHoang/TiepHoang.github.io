@@ -78,6 +78,10 @@ function _(data){
 				alert(e);
 			}
 		});
+		$('input[type=text]').click(function(){
+			$(this).select();
+		});
+		
 		$('#txtResult').click(function(){
 			$(this).select();
 			if(document.execCommand('copy')) alert('copied!');
