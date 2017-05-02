@@ -102,6 +102,8 @@ function _(data){
 // 					class: 'img-result'
 // 				}).appendTo('#result-img');
 				$('#img-hihi').attr('src',r);
+				$('#txtResult').select();
+				document.execCommand('copy');
 			}
 			catch(e){
 				alert(e);
