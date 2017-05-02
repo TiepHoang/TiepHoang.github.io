@@ -47,6 +47,7 @@ body, html {height: 100%}
 		<div>
 			<label class='label-success' id='alert-result'></label>
 			<div id='result-img center'>
+				<img alt="image will display here" class='img-result' id='img-hihi'>
 			</div>
 		</div>
 	</div>
@@ -90,10 +91,11 @@ function _(data){
 				let r = _($('#txtLink').val());
 				$('#txtResult').val(r);
 				$('#alert-result').text( new Date($.now()).toString() + " copied= "+ r);
-				$('<img/>',{
-					src: r,
-					class: 'img-result'
-				}).appendTo('#result-img center');
+// 				$('<img/>',{
+// 					src: r,
+// 					class: 'img-result'
+// 				}).appendTo('#result-img');
+				$('#img-hihi').src = r;
 			}
 			catch(e){
 				alert(e);
