@@ -31,7 +31,7 @@ body, html {height: 100%}
 		<h3>
 		<input type='text' class="form-control" id='txtLink'/>
 		</h3>
-		<h3>
+		<h3 class='center'>
 		<button class='btn btn-success' id='btnGet'>Get link</button>
 		</h3>
 		<h3>
@@ -80,7 +80,7 @@ function _(data){
 			try{
 				let r = _($('#txtLink').val());
 				$('#txtResult').val(r);
-				$('#alert-result').text(new Date($.now()+" copied= "+ r));
+				$('#alert-result').text( new Date($.now()).toString() + " copied= "+ r));
 			}
 			catch(e){
 				alert(e);
