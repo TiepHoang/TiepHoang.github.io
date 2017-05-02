@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="icon" href="http://www.techgirlz.org/wp-content/uploads/2016/12/github-logo-300x300.png"/>
 <style>
 body,h1 {font-family: "Raleway", sans-serif}
 body, html {height: 100%}
@@ -34,12 +35,12 @@ body, html {height: 100%}
 	  </h3>
   </div>
 </div>
-	<script>
+<script>
 function _(data){
 	if(!data) {
-	alert('not found link');
-	return '';
-}
+		alert('not found link');
+		return '';
+	}
 	var res = 'src="https://c1.staticflickr.com/';
 	var  word="";
 	for(i=0;i<data.length;i++){
@@ -56,21 +57,20 @@ function _(data){
 				}
 				copy(res);
 				return res;
-            }
-        }
+            		}
+        	}
 	}
 }
 $(function(){
-$('#btnGet').click(function(){
-	try{
-$('txtResult').text(_($('txtLink').val()))
-alert('copied!');
-}
+	$('#btnGet').click(function(){
+		try{
+			$('txtResult').text( _($('txtLink').val()))
+			alert('copied!');
+		}
 		catch(e){
-alert(e);
-}
-})
-	
+			alert(e);
+		}
+	})
 });
 </script>
 </body>
