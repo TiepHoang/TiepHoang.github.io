@@ -20,6 +20,13 @@ body, html {height: 100%}
 .center{
 	text-align: center;
 }
+#result-img{
+	display: block;	
+}
+.img-result{
+	max-width: 80%;
+	max-height: 50%;
+}
 </style>
 <body>
 <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
@@ -39,6 +46,8 @@ body, html {height: 100%}
 		</h3>
 		<div>
 			<label class='label-success' id='alert-result'></label>
+			<div id='result-img center'>
+			</div>
 		</div>
 	</div>
 </div>
@@ -81,6 +90,10 @@ function _(data){
 				let r = _($('#txtLink').val());
 				$('#txtResult').val(r);
 				$('#alert-result').text( new Date($.now()).toString() + " copied= "+ r);
+				$('<img/>',{
+					src: r,
+					class: 'img-result'
+				}).appendTo('#result-img center');
 			}
 			catch(e){
 				alert(e);
