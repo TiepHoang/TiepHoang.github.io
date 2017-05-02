@@ -1,5 +1,40 @@
-Get src image from link flick.com
-<textarea>
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,h1 {font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+.bgimg {
+    background-image: url('/w3images/forestbridge.jpg');
+    min-height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+</style>
+<body>
+
+<div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+  <div class="w3-display-topleft w3-padding-large w3-xlarge">
+    Hoàng Tiệp
+  </div>
+  <div class="w3-display-middle">
+    <h1 class="w3-jumbo w3-animate-top">GET SRC IMAGE FROM LINK FLICK</h1>
+    <h3>
+	<input class="form-control" id='txtLink'/>  
+	</h3>
+    <h3><button class='btn btn-success' id='btnGet'>Get link</button></h3>
+    <h3>
+	  <input class="form-control" id='txtResult'/>
+	  </h3>
+  </div>
+</div>
+	<script>
 function _(data){
 	var res = 'src="https://c1.staticflickr.com/';
 	var  word="";
@@ -21,4 +56,10 @@ function _(data){
         }
 	}
 }
-</textarea>
+
+	$('#btnGet').click(function(){
+	$('txtResult').text(_($('txtLink').val()))
+});
+</script>
+</body>
+</html>
