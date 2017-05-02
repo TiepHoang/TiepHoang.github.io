@@ -38,7 +38,6 @@ body, html {height: 100%}
 <script>
 function _(data){
 	if(!data) {
-		alert('not found link');
 		throw 'not found link';
 	}
 	var res = 'src="https://c1.staticflickr.com/';
@@ -61,17 +60,21 @@ function _(data){
         	}
 	}
 }
-$(function(){
-	$('#btnGet').click(function(){
-		try{
-			$('txtResult').text( _($('txtLink').val()))
-			alert('copied!');
-		}
-		catch(e){
-			alert(e);
-		}
-	})
-});
+</script>
+<script>
+	$(function(){
+		$('#btnGet').click(function(){
+			try{
+				console.log($('txtLink').val());
+				let r = _($('txtLink').val());
+				$('txtResult').val(r);
+				alert('copied!');
+			}
+			catch(e){
+				alert(e);
+			}
+		})
+	});
 </script>
 </body>
 </html>
